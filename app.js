@@ -10,13 +10,28 @@ function init() {
     */
 
     var matilde = new Vaca('Matilde');
-    var juana = {
-        nombre: 'juana'
-    };
-    console.log('El nombre de la primera vaca es ' + matilde.nombre);
-    console.log('El nombre de la primera vaca es ' + matilde['nombre']);
+    matilde.comer();
+    matilde.ordennar();
+
+    var juana = new Animal('Juana');
+    juana.comer();
+    juana.setApodo('Juanita');
+    juana.decirApodo();
+
+    var lola = new Animal('Lola');
+    lola.comer();
+    lola.setApodo('Lolita');
+    lola.decirApodo();
+
+    juana.decirApodo();
+
     console.log(matilde);
     console.log(juana);
+    console.log(lola);
 
-    matilde.comer();
+    console.log(lola.getApodo());
+    lola.removerApodo();
+    console.log(lola.getApodo());
+    //console.log(Object.getOwnPropertyNames(Vaca.prototype));
+
 }

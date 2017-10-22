@@ -1,7 +1,24 @@
-function Vaca(pnombre) {
-	this.nombre = pnombre;
-}
+var Vaca = (
+	function () {
 
-Vaca.prototype.comer = function () {
-	console.log('La vaca ' + this.nombre + ' esta comiento!');
-}
+		function Vaca(pnombre) {
+			Animal.call(this, pnombre);
+		}
+
+		//Heredar los metodos definidos en Animal (prototype)
+		Vaca.prototype = Object.create(Animal.prototype);
+		Vaca.prototype.constructor = Animal;
+
+		//Class Overrides
+		Vaca.prototype.comer = function () {
+			console.log(this.nombre + ' soy una vaca y estoy comiendo.');
+		}
+
+		//Class Methods
+		Vaca.prototype.ordennar = function () {
+			console.log(this.nombre + ' está siendo ordennada.');
+		}
+
+		return Vaca;
+	}
+)();
